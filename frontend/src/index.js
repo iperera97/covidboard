@@ -1,7 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import App from './app'
+
 
 ReactDOM.render(
-  <h1>Hello World Isuru</h1>,
+  <App />,
   document.getElementById('root')
 );
+ 
