@@ -14,7 +14,7 @@ class LKStatsPipeline(BasePipeline):
     endpoint: str = "https://hpb.health.gov.lk/api/get-current-statistical"
     data: dict = {}
     update_date_time: str
-    commit_msg = "added lk stats json file"
+    commit_msg: str = "added lk stats json file"
 
     def extract(self):
         http = requests.get(self.endpoint)
@@ -23,7 +23,9 @@ class LKStatsPipeline(BasePipeline):
         if response.get('success'):
             self.data = response.get('data', {})
             last_update_date_time = self.data.get('update_date_time')
-            self.update_date_time = datetime.strptime(last_update_date_time, '%Y-%m-%d %H:%M:%S')  # noqa
+            self.update_date_time = datetime.strptime(
+                last_update_date_time, '%Y-%m-%d %H:%M:%S'
+            )
             return True
 
     def transform(self):
