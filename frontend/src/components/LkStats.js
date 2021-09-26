@@ -30,10 +30,19 @@ class LkStats extends React.Component {
 
   getTotalStats(){
     return [
-      {'title': 'Total Confirmed Cases', 'count': this.state.statistics.local_total_cases},
+      {'title': 'Confirmed Cases', 'count': this.state.statistics.local_total_cases},
       {'title': 'Deaths', 'count': this.state.statistics.local_deaths},
       {'title': 'Recovered', 'count': this.state.statistics.local_recovered},
-      {'title': 'Total PCR Testing', 'count': this.state.statistics.total_pcr_testing_count},
+      {'title': 'PCR Testing', 'count': this.state.statistics.total_pcr_testing_count},
+    ]
+  }
+
+  getDailyStats(){
+    return [
+      {'title': 'Cases', 'count': this.state.statistics.local_new_cases},
+      {'title': 'Deaths', 'count': this.state.statistics.local_new_deaths},
+      {'title': 'Active Cases', 'count': this.state.statistics.local_active_cases},
+      {'title': 'PCR Testing', 'count': this.state.statistics.daily_pcr_testing_data[0].pcr_count},
     ]
   }
 
@@ -42,13 +51,21 @@ class LkStats extends React.Component {
       <div>
         {/* total statics goes here */}
         {(this.state.statistics)? (
-        <StatsList
-          title="Total Figures (SL)"
-          items={this.getTotalStats()}
-          updated_time={this.state.statistics_updated_time} />
-        ): null}
+          <StatsList
+            title="Total Figures (SL)"
+            items={this.getTotalStats()}
+            updated_time={this.state.statistics_updated_time}
+          />): null
+        }
 
         {/* daily statics goes here */}
+        {(this.state.statistics)? (
+          <StatsList
+            title="Daily Figures (SL)"
+            items={this.getDailyStats()}
+            updated_time={this.state.statistics_updated_time}
+          />): null
+        }
       </div>
     )
   }
