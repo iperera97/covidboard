@@ -35,7 +35,7 @@ class LKStatsPipeline(BasePipeline):
 
     def full_load(self):
         date = self.update_date_time.date()
-        file_path = f'{config.DB_DIR}/{date}.json'
+        file_path = f'{config.DB_DIR}/lk-stats-{date}.json'
         with open(file_path, 'w') as file:
             json.dump(self.data, file, indent=4)
 

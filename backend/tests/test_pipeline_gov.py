@@ -20,6 +20,6 @@ def test_transform(pipeline):
 
 
 def test_full_load(pipeline):
-    pipeline.extract()
-    pipeline.transform()
-    pipeline.full_load()
+    assert pipeline.extract()
+    assert pipeline.transform()
+    assert pipeline.full_load()
