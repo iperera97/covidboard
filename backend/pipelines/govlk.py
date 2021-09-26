@@ -4,6 +4,7 @@ from datetime import datetime
 import requests
 
 import config
+import utils
 from .base import BasePipeline
 
 
@@ -13,6 +14,7 @@ class LKStatsPipeline(BasePipeline):
     endpoint: str = "https://hpb.health.gov.lk/api/get-current-statistical"
     data: dict = {}
     update_date_time: str
+    commit_msg = "added lk stats json file"
 
     def extract(self):
         http = requests.get(self.endpoint)
@@ -37,7 +39,7 @@ class LKStatsPipeline(BasePipeline):
         with open(file_path, 'w') as file:
             json.dump(self.data, file, indent=4)
 
-        return True
+        return utils.commit_new_file_to_github(file_path, self.commit_msg)
 
     def incremental_load(self):
         raise NotImplementedError()
