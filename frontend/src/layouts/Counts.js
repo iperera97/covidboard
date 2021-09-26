@@ -16,12 +16,13 @@ const StatsItem = (props) => {
 
 
 const StatsList = (props) => {
-
   let items = props.items || []
-  console.log('items', items)
 
   return (
     <div className="row">
+        <div className="col-sm-12">
+          <p>{props.title}</p>
+        </div>
         {items.map((item, index) => {
           return (
             <div className="col-sm-12 col-md-3" key={index}>
@@ -29,22 +30,10 @@ const StatsList = (props) => {
             </div>
           )
         })}
+        <div className="col-sm-12">
+          <p>Last updated at {props.updated_time}</p>
+        </div>
     </div>
-
-    // <div className="card">
-    //   <div className="card-header">
-    //     Featured
-    //   </div>
-    //   <ul className="list-group list-group-flush">
-    //     {items.map((item, index) => {
-    //       return (
-    //         <li className="list-group-item" key={index}>
-    //           <StatsItem title={item.title} count={item.count} />
-    //         </li>
-    //       )
-    //     })}
-    //   </ul>
-    // </div>
   )
 }
 

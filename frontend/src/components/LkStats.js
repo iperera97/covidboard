@@ -11,6 +11,7 @@ class LkStats extends React.Component {
     super(props)
     this.state = {
       statistics: null,
+      statistics_updated_time: null
     }
   }
 
@@ -21,7 +22,10 @@ class LkStats extends React.Component {
   async getStats(){
     let http = await axios.get(this.endpoint)
     let data = http.data
-    this.setState({statistics: data})
+    this.setState({
+      statistics: data,
+      statistics_updated_time: data.update_date_time
+    })
   }
 
   getTotalStats(){
@@ -37,7 +41,12 @@ class LkStats extends React.Component {
     return (
       <div>
         {/* total statics goes here */}
-        {(this.state.statistics)? <StatsList items={this.getTotalStats()} />: null}
+        {(this.state.statistics)? (
+        <StatsList
+          title="Total Figures (SL)"
+          items={this.getTotalStats()}
+          updated_time={this.state.statistics_updated_time} />
+        ): null}
 
         {/* daily statics goes here */}
       </div>
