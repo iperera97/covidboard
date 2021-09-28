@@ -4,7 +4,7 @@ import React from "react";
 const StatsItem = (props) => {
   let count = props.count
   return (
-    <div className="card">
+    <div className="card m-2">
       <div className={`card-header text-center ${props.css}`}>
         <h6 style={{color: 'white'}}>{props.title}</h6>
       </div>
@@ -20,7 +20,7 @@ const StatsList = (props) => {
   let items = props.items || []
 
   return (
-    <div className="row m-3">
+    <div className="row m-2">
         <div className="col-sm-12">
           <h6 style={{textAlign: 'left',margin: '10px'}}>{props.title} - last updated at {props.updated_time}</h6>
         </div>

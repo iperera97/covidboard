@@ -27,6 +27,8 @@
   "homepage": "https://github.com/iperera97/covidboard#readme",
   "dependencies": {
     "axios": "^0.21.4",
+    "highcharts": "^9.2.2",
+    "highcharts-react-official": "^3.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
