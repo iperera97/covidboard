@@ -2,13 +2,14 @@ import React from "react";
 
 
 const StatsItem = (props) => {
+  let count = props.count
   return (
     <div className="card">
       <div className={`card-header text-center ${props.css}`}>
         <h6 style={{color: 'white'}}>{props.title}</h6>
       </div>
       <div className="card-body text-center">
-        <h3>{props.count}</h3>
+        <h3>{(count)? count.toLocaleString("en-US"): '---'}</h3>
       </div>
     </div>
   )
