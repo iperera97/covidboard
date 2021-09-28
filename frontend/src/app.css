@@ -1,0 +1,23 @@
+body {
+    background-color: #f2f4f5;
+}
+
+p {
+    margin: 2px !important;
+}
+
+.blue {
+    background-color: #4e6bffba;
+}
+
+.red {
+    background-color: #ff8484;
+}
+
+.green {
+    background-color: #79ca53;
+}
+
+.orange {
+    background-color: #fa9a62;
+}

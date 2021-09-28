@@ -6,7 +6,7 @@ const Header = (props) => {
     <header>
       <div className="card">
         <div className="card-body">
-          <h1 className="card-text text-center">Covid19 Dashboard</h1>
+          <h2 className="card-text text-center">COVID19 DASHBOARD</h2>
         </div>
       </div>
     </header>

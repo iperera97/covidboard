@@ -30,19 +30,19 @@ class LkStats extends React.Component {
 
   getTotalStats(){
     return [
-      {'title': 'Confirmed Cases', 'count': this.state.statistics.local_total_cases},
-      {'title': 'Deaths', 'count': this.state.statistics.local_deaths},
-      {'title': 'Recovered', 'count': this.state.statistics.local_recovered},
-      {'title': 'PCR Testing', 'count': this.state.statistics.total_pcr_testing_count},
+      {'title': 'Confirmed Cases', 'count': this.state.statistics.local_total_cases, css: 'blue'},
+      {'title': 'Deaths', 'count': this.state.statistics.local_deaths, css: 'red'},
+      {'title': 'Recovered', 'count': this.state.statistics.local_recovered, css: 'green'},
+      {'title': 'PCR Testing', 'count': this.state.statistics.total_pcr_testing_count, css: 'orange'},
     ]
   }
 
   getDailyStats(){
     return [
-      {'title': 'Cases', 'count': this.state.statistics.local_new_cases},
-      {'title': 'Deaths', 'count': this.state.statistics.local_new_deaths},
-      {'title': 'Active Cases', 'count': this.state.statistics.local_active_cases},
-      {'title': 'PCR Testing', 'count': this.state.statistics.daily_pcr_testing_data[0].pcr_count},
+      {'title': 'Cases', 'count': this.state.statistics.local_new_cases, css: 'blue'},
+      {'title': 'Deaths', 'count': this.state.statistics.local_new_deaths, css: 'red'},
+      {'title': 'Active Cases', 'count': this.state.statistics.local_active_cases, css: 'green'},
+      {'title': 'PCR Testing', 'count': this.state.statistics.daily_pcr_testing_data[0].pcr_count, css: 'orange'},
     ]
   }
 

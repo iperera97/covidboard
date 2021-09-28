@@ -1,4 +1,5 @@
 import React from 'react'
+import './app.css'
 import Header from './layouts/Header'
 import Footer from './layouts/Footer'
 import LkStats from './components/LkStats'
@@ -6,9 +7,11 @@ import LkStats from './components/LkStats'
 
 const App = () =>{
   return (
-    <div className='container-fluid'>
+    <div>
       <Header />
-      <LkStats />
+      <div className="container-fluid">
+        <LkStats />
+      </div>
       <Footer />
     </div>
   )
