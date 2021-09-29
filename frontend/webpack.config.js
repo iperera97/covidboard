@@ -6,7 +6,7 @@ module.exports = {
   entry: path.join(__dirname, "src", "index.js"),
   
   output: {
-    path:path.resolve(__dirname, "public"),
+    path:path.resolve(__dirname, "../docs"),
     filename: 'bundle.js',
   },
 
@@ -51,7 +51,7 @@ module.exports = {
 
   devServer: {
     static : {
-      directory : path.join(__dirname, "public/")
+      directory : path.join(__dirname, "../docs/")
     },
     port: 3000,
   },
