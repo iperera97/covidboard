@@ -53,17 +53,31 @@ class LkChart extends React.Component {
     return chart.render()
   }
 
+  getRecorverdProgress(){
+    let chart = new ChartUtils(
+      'column', 'recoveries_count', 'date',
+      this.state.data, 14, {
+        title: 'Daily Recovered Count Progress',
+        series_color: "#79ca53"
+      }
+    )
+    return chart.render()
+  }
+
   render(){
     let covidProgresChart_1 = null
     let covidDeathChart_1 = null
+    let covidRecorverdChart_1 = null
 
     if (this.state.data.length != 0){
       covidProgresChart_1 = this.getCovidCaseProgress()
       covidDeathChart_1 = this.getDeathProgress()
+      covidRecorverdChart_1 = this.getRecorverdProgress()
     }
 
     return (
       <div className="row m-2">
+        {/* covid progress chart goes here */}
         <div className="col-sm-12 col-md-6">
           {(covidProgresChart_1)?
             <HighchartsReact
@@ -72,14 +86,27 @@ class LkChart extends React.Component {
           }
         </div>
 
+        {/* covid recovered chart goes here */}
         <div className="col-sm-12 col-md-6">
+          {(covidRecorverdChart_1)?
+            <HighchartsReact
+              highcharts={Highcharts}
+              options={covidRecorverdChart_1} />: null
+          }
+        </div>
+
+        <div className="m-2"></div>
+
+        {/* covid death chart goes here */}
+        <div className="col-sm-12">
           {(covidDeathChart_1)?
             <HighchartsReact
               highcharts={Highcharts}
               options={covidDeathChart_1} />: null
           }
-        </div>
-
+        </div>      
+        
+        <div className="m-1"></div>
       </div>
     )
   }
